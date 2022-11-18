@@ -1,7 +1,7 @@
 # Arch Linux installation script
 Installing Arch has never been simpler.
 
-<img src="showcase.gif"></img>
+<!-- <img src="showcase.gif"></img> -->
 
 ## Introduction
 
