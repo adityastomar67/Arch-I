@@ -1,18 +1,20 @@
 #!/bin/zsh
-# tralph3's Arch installation script
+# adityastomar67's Arch installation script
 
 # fetch scripts
 if ! [ -f definitions.sh ]; then
-    curl -Lo definitions.sh "https://raw.githubusercontent.com/tralph3/arch-install/master/definitions.sh"
+    curl -Lo definitions.sh "https://raw.githubusercontent.com/adityastomar67/Arch-I/master/definitions.sh"
 fi
 
 if ! [ -f packages.sh ]; then
-    curl -Lo packages.sh "https://raw.githubusercontent.com/tralph3/arch-install/master/packages.sh"
+    curl -Lo packages.sh "https://raw.githubusercontent.com/adityastomar67/Arch-I/master/packages.sh"
 fi
 
 source definitions.sh
 source packages.sh
 
+# Calling functions
+header
 setup_variables
 configure_pacman
 update_keyring

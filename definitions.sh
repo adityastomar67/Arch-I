@@ -1,6 +1,4 @@
-#############
 # PRE-SETUP #
-#############
 setup_variables() {
 
     echo "\x1b[1;36m"
@@ -173,9 +171,7 @@ update_keyring() {
 }
 
 
-################
 # PARTITIONING #
-################
 partition_and_mount() {
 
     if [ -d /sys/firmware/efi/efivars ]; then
@@ -290,9 +286,7 @@ install_base() {
 }
 
 
-###########
 # NETWORK #
-###########
 setup_network() {
     # timezone
     ln -sfv /usr/share/zoneinfo/America/Argentina/Buenos_Aires /etc/localtime
@@ -321,9 +315,7 @@ configure_locale() {
 }
 
 
-########
 # BASE #
-########
 prepare_system() {
     # install basic system components
     if [ "$WIFI" = "y" ]; then
@@ -362,9 +354,7 @@ install_cpu_ucode() {
 }
 
 
-#########
 # USERS #
-#########
 setup_users() {
     useradd -mG wheel,video,audio,optical,storage,games -s /bin/zsh ${USR}
     echo -e "${PASSWD}\n${PASSWD}\n" | passwd ${USR}
@@ -378,9 +368,7 @@ setup_users() {
 }
 
 
-#######
 # GUI #
-#######
 prepare_gui() {
     # add the default DM to the list of services to be enabled
     # and set up the DE variable
@@ -434,9 +422,7 @@ prepare_gui() {
 }
 
 
-#################
 # CUSTOMIZATION #
-#################
 install_applications() {
     ins='paru --needed --useask --ask=127 --noconfirm -S'
 
@@ -530,9 +516,7 @@ install_dotfiles() {
 }
 
 
-############
 # SERVICES #
-############
 enable_services() {
     for service in ${SERVICES[*]}
     do
@@ -540,3 +524,16 @@ enable_services() {
     done
 }
 
+
+# OTHERS #
+header() {
+	echo "
+███████╗██████╗ ███████╗ ██████╗██╗  ██╗      ██╗███╗  ██╗ ██████╗████████╗ █████╗ ██╗     ██╗         ██████╗██╗  ██╗
+██╔════╝██╔══██╗██╔════╝██╔════╝██║  ██║      ██║████╗ ██║██╔════╝╚══██╔══╝██╔══██╗██║     ██║        ██╔════╝██║  ██║
+█████╗  ██████╔╝█████╗  ╚█████╗ ███████║█████╗██║██╔██╗██║╚█████╗    ██║   ███████║██║     ██║        ╚█████╗ ███████║
+██╔══╝  ██╔══██╗██╔══╝   ╚═══██╗██╔══██║╚════╝██║██║╚████║ ╚═══██╗   ██║   ██╔══██║██║     ██║         ╚═══██╗██╔══██║
+██║     ██║  ██║███████╗██████╔╝██║  ██║      ██║██║ ╚███║██████╔╝   ██║   ██║  ██║███████╗███████╗██╗██████╔╝██║  ██║
+╚═╝     ╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝  ╚═╝      ╚═╝╚═╝  ╚══╝╚═════╝    ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝
+                                                 █▄▄ █▄█   ▄▄   ▄▀█ █▀▄ █ ▀█▀ █▄█ ▄▀█ █▀ ▀█▀ █▀█ █▀▄▀█ ▄▀█ █▀█ █▄▄ ▀▀█
+                                                 █▄█  █         █▀█ █▄▀ █  █   █  █▀█ ▄█  █  █▄█ █ ▀ █ █▀█ █▀▄ █▄█   █"
+}

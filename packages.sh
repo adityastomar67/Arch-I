@@ -100,12 +100,11 @@ SERVICES=(
 GPU_DRIVERS=()
 
 
-########################
 # DESKTOP ENVIRONMENTS #
-########################
 ENVIRONMENTS=(
     'AWESOME'
     'BUDGIE'
+    'BSPWM'
     'CINNAMON'
     'DEEPIN'
     'ENLIGHTENMENT'
@@ -149,6 +148,11 @@ BUDGIE=(
     'xdg-desktop-portal'
     'xdg-desktop-portal-gtk'
     'xorg-server'
+)
+
+BSPWM=(
+    'rofi'
+    'thunar'
 )
 
 CINNAMON=(
