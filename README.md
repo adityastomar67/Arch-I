@@ -1,5 +1,27 @@
-# Arch Linux installation script
-Installing Arch has never been simpler.
+<div align="center">
+
+  <h1><a href="https://github.com/adityastomar67/Arch-I">Arch-I</a>  --  Arch Linux Installation Script</h1>
+  <h3>Installing Arch has never been simpler.</h3>
+
+  <a href="https://github.com/adityastomar67/Arch-I/blob/main/LICENSE.md">
+  <img alt="License" src="https://img.shields.io/github/license/adityastomar67/Arch-I?style=flat&color=eee&label="> </a>
+
+  <a href="https://github.com/adityastomar67/Arch-I/graphs/contributors">
+  <img alt="People" src="https://img.shields.io/github/contributors/adityastomar67/Arch-I?style=flat&color=ffaaf2&label=People"> </a>
+
+  <a href="https://github.com/adityastomar67/Arch-I/stargazers">
+  <img alt="Stars" src="https://img.shields.io/github/stars/adityastomar67/Arch-I?style=flat&color=98c379&label=Stars"></a>
+
+  <a href="https://github.com/adityastomar67/Arch-I/network/members">
+  <img alt="Forks" src="https://img.shields.io/github/forks/adityastomar67/Arch-I?style=flat&color=66a8e0&label=Forks"> </a>
+
+  <a href="https://github.com/adityastomar67/Arch-I/watchers">
+  <img alt="Watches" src="https://img.shields.io/github/watchers/adityastomar67/Arch-I?style=flat&color=f5d08b&label=Watches"> </a>
+
+  <a href="https://github.com/adityastomar67/Arch-I/pulse">
+  <img alt="Last Updated" src="https://img.shields.io/github/last-commit/adityastomar67/Arch-I?style=flat&color=e06c75&label="> </a>
+
+</div>
 
 <!-- <img src="showcase.gif"></img> -->
 
@@ -9,14 +31,14 @@ This installation script will easily install Arch Linux on both UEFI and BIOS sy
 
 As this installation script was written to be quick and efficient, only these very basic settings are set when installing.
 
-* Root drive
-* Secondary drive
-* Windows drive
-* Username and Password
-* Hostname
-* Desktop Environment
-* If you wish to install gaming applications
-* If you wish to install my personal dotfiles
+- Root drive
+- Secondary drive
+- Windows drive
+- Username and Password
+- Hostname
+- Desktop Environment
+- If you wish to install gaming applications
+- If you wish to install my personal dotfiles
 
 Things like timezone, partitioning scheme, filesystem, and anything else not contemplated in these settings is set up in the way I prefer, and if you are to use this script, it's heavily encouraged that you fork the repo and modify the script to fit your preferences.
 
@@ -75,68 +97,68 @@ Here's a list of all the default settings, next to each section, you'll see the 
 
 ### Pacman (`configure_pacman`)
 
-* Color
-* Verbose Package Lists
-* Multilib repo
-* Parallel Downloads (set to 10)
-* ILoveCandy easter egg
+- Color
+- Verbose Package Lists
+- Multilib repo
+- Parallel Downloads (set to 10)
+- ILoveCandy easter egg
 
 ### Partitioning (`partition_and_mount`)
 
-* EXT4 filesystem
-* UEFI or BIOS depending on how the live environment is booted
-* UEFI:
-    * GPT partition scheme
-    * 512MB boot partition
-    * Second partition that uses the rest of the drive
-* BIOS:
-    * MBR partition scheme
-    * A single partition that takes the entirety fo the drive
-* Windows and Storage partitions get mounted on `/mnt/Windows` or `/mnt/Storage`
-* Root disk will get erased completely, no questions asked
-* Windows and Storage disks only get mounted and added to fstab
+- EXT4 filesystem
+- UEFI or BIOS depending on how the live environment is booted
+- UEFI:
+  - GPT partition scheme
+  - 512MB boot partition
+  - Second partition that uses the rest of the drive
+- BIOS:
+  - MBR partition scheme
+  - A single partition that takes the entirety fo the drive
+- Windows and Storage partitions get mounted on `/mnt/Windows` or `/mnt/Storage`
+- Root disk will get erased completely, no questions asked
+- Windows and Storage disks only get mounted and added to fstab
 
 ### FSTAB (`install_base`)
 
-* Generated automatically using UUIDs
+- Generated automatically using UUIDs
 
 ### Timezone and Locale (`setup_network`)
 
-* Timezone is set to `America/Argentina/Buenos_Aires`
-* The `en_US.UTF-8 UTF-8` and `es_AR.UTF-8 UTF-8` locales get enabled
-* Langauge is set to `en_US`
+- Timezone is set to `Asia/Kolkata`
+- The `en_US.UTF-8 UTF-8` and `es_AR.UTF-8 UTF-8` locales get enabled
+- Langauge is set to `en_US`
 
 ### Wifi, Bootloader and Microcode (`prepare_system`)
 
-* `wpa_supplicant` and `wireless_tools` get installed if a wifi card is detected
-* Grub is used as the bootloader
-* `amd-ucode` or `intel-ucode` get installed according to the host's CPU
+- `wpa_supplicant` and `wireless_tools` get installed if a wifi card is detected
+- Grub is used as the bootloader
+- `amd-ucode` or `intel-ucode` get installed according to the host's CPU
 
 ### Users (`setup_users`)
 
-* A new user gets added with the provided name and is added to the following groups:
-    * wheel,video,audio,optical,storage,games
-    * zsh is used as the default shell
-* The user gets sudo privileges through the wheel group
-* "Defaults insults" is enabled in sudoers
+- A new user gets added with the provided name and is added to the following groups:
+  - wheel,video,audio,optical,storage,games
+  - zsh is used as the default shell
+- The user gets sudo privileges through the wheel group
+- "Defaults insults" is enabled in sudoers
 
 ### Drivers and DE (`prepare_gui`)
 
-* Here the variables to install the DE are set
-* Depending on the chosen DE, a Display Manager gets installed with it
+- Here the variables to install the DE are set
+- Depending on the chosen DE, a Display Manager gets installed with it
 
 ### Customization (`install_applications`)
 
-* `paru` gets installed as the AUR helper with the `paru-bin` package to avoid compile times
-* GPU drivers get detected automatically
-    * Old NVIDIA cards will need to change this since the drivers are always latest
-* User applications get installed
-* Gaming applications get installed (if marked as such)
-* Dotfiles get installed (if marked as such)
+- `paru` gets installed as the AUR helper with the `paru-bin` package to avoid compile times
+- GPU drivers get detected automatically
+  - Old NVIDIA cards will need to change this since the drivers are always latest
+- User applications get installed
+- Gaming applications get installed (if marked as such)
+- Dotfiles get installed (if marked as such)
 
 ### Services (`enable_services`)
 
-* All services specified in its array get enabled with `systemctl`
+- All services specified in its array get enabled with `systemctl`
 
 ---
 

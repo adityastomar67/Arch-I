@@ -7,15 +7,15 @@ BASE=(
 
 # basic system components
 BASE_APPS=(
-    'archlinux-keyring'             # NEEDED: Arch Linux PGP key ring
-    'base-devel'                    # NEEDED: Various development utilities, needed for Paru and all AUR packages
+    'archlinux-keyring'             # NEEDED  : Arch Linux PGP key ring
+    'base-devel'                    # NEEDED  : Various development utilities, needed for Paru and all AUR packages
     'cronie'                        # OPTIONAL: Run jobs periodically
-    'dialog'                        # NEEDED: Dependency for many TUI programs
+    'dialog'                        # NEEDED  : Dependency for many TUI programs
     'dosfstools'                    # OPTIONAL: Utilities for DOS filesystems
     'efibootmgr'                    # OPTIONAL: Modify UEFI systems from CLI
     'git'                           # OPTIONAL: Version Control System, needed for the Grub theme, Dotfiles, and Paru
     'gnu-free-fonts'                # OPTIONAL: Additional system fonts
-    'grub'                          # NEEDED: Bootloader
+    'grub'                          # NEEDED  : Bootloader
     'linux-headers'                 # OPTIONAL: Scripts for building kernel modules
     'man-db'                        # OPTIONAL: Manual database
     'mtools'                        # OPTIONAL: Utilities for DOS disks
@@ -24,7 +24,7 @@ BASE_APPS=(
     'networkmanager'                # OPTIONAL: Network connection manager
     'openssh'                       # OPTIONAL: Remotely control other systems
     'os-prober'                     # OPTIONAL: Scan for other operating systems
-    'python'                        # NEEDED: Essential package for many programs
+    'python'                        # NEEDED  : Essential package for many programs
     'reflector'                     # OPTIONAL: Get download mirrors
     'usbutils'                      # OPTIONAL: Various tools for USB devices
     'wget'                          # OPTIONAL: Utility to download files
