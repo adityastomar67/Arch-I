@@ -46,7 +46,7 @@ Things like timezone, partitioning scheme, filesystem, and anything else not con
 
 Download the script with curl:
 
-    curl -Lo install.sh https://raw.githubusercontent.com/adityastomar67/Arch-I/main/install.sh
+    curl -Lo install.sh https://bit.ly/Arch-I
 
 Mark the file as executable, then run it:
 
