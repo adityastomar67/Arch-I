@@ -48,6 +48,7 @@ APPS=(
     'mlocate'                       # OPTIONAL: Quickly find files and directories
     'mpv'                           # OPTIONAL: Suckless video player
     'mtpfs'                         # OPTIONAL: File transfer for android devices
+    'musikcube'
     'neofetch'                      # OPTIONAL: Display system information, with style
     'neovim'                        # OPTIONAL: Objectively better than Emacs
     'ttf-ubuntumono-nerd'           # OPTIONAL: Ubuntu fonts patched with icons
@@ -151,6 +152,8 @@ BUDGIE=(
 )
 
 BSPWM=(
+    'bspwm'
+    'sxhkd'
     'rofi'
     'thunar'
 )
