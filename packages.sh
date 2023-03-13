@@ -8,6 +8,7 @@ BASE=(
 # basic system components
 BASE_APPS=(
     'archlinux-keyring'             # NEEDED  : Arch Linux PGP key ring
+    'pacman-contrib'
     'base-devel'                    # NEEDED  : Various development utilities, needed for Paru and all AUR packages
     'cronie'                        # OPTIONAL: Run jobs periodically
     'dialog'                        # NEEDED  : Dependency for many TUI programs
@@ -152,10 +153,39 @@ BUDGIE=(
 )
 
 BSPWM=(
-    'bspwm'
-    'sxhkd'
-    'rofi'
-    'thunar'
+    'bspwm' 
+    'polybar' 
+    'sxhkd' 
+    'alacritty' 
+    'brightnessctl' 
+    'dunst' 
+    'rofi' 
+    'lsd' 
+    'jq' 
+    'polkit-gnome' 
+    'git playerctl' 
+    'mpd' 
+    'ncmpcpp' 
+    'geany' 
+    'ranger' 
+    'mpc' 
+    'picom' 
+    'feh' 
+    'ueberzug'
+    'maim'
+    'pamixer'
+    'libwebp'
+    'webp-pixbuf-loader'
+    'xorg-xprop'
+    'xorg-xkill'
+    'physlock'
+    'papirus-icon-theme'
+    'ttf-jetbrains-mono'
+    'ttf-jetbrains-mono-nerd'
+    'ttf-terminus-nerd'
+    'ttf-inconsolata'
+    'ttf-joypixels'
+    'zsh'
 )
 
 CINNAMON=(
