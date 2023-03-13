@@ -36,19 +36,11 @@ BASE_APPS=(
 # user applications
 APPS=(
     'alsa-utils'                    # OPTIONAL: Utilities for managing alsa cards
-    'android-tools'                 # OPTIONAL: Utilities for managing android devices
-    'audacity'                      # OPTIONAL: Audio editor
-    'emacs'                         # OPTIONAL: Objectively better than vim
     'exa'                           # OPTIONAL: Replacement for the ls command
     'ffmpeg'                        # OPTIONAL: Audio and video magic
     'firefox'                       # OPTIONAL: Web browser
     'flameshot'                     # OPTIONAL: Screenshot utility
-    'gimp'                          # OPTIONAL: Image editor
-    'helvum'                        # OPTIONAL: GUI for Pipewire configuration
-    'htop'                          # OPTIONAL: System and process manager
-    'mlocate'                       # OPTIONAL: Quickly find files and directories
     'mpv'                           # OPTIONAL: Suckless video player
-    'mtpfs'                         # OPTIONAL: File transfer for android devices
     'musikcube'
     'neofetch'                      # OPTIONAL: Display system information, with style
     'neovim'                        # OPTIONAL: Objectively better than Emacs
@@ -61,12 +53,10 @@ APPS=(
     'pipewire-alsa'                 # OPTIONAL: Pipewire alsa configuration
     'pipewire-pulse'                # OPTIONAL: Pipewire replacement for pulseaudio
     'python-pynvim'                 # OPTIONAL: Python client for neovim
-    'qbittorrent'                   # OPTIONAL: Torrent downloader
     'ripgrep'                       # OPTIONAL: GNU grep replacement
     'ttf-ubuntu-font-family'        # OPTIONAL: Ubuntu fonts
     'unrar'                         # OPTIONAL: Support for rar files
     'unzip'                         # OPTIONAL: Support for zip files
-    'wireplumber'                   # OPTIONAL: Session manager for Pipewire
     'xclip'                         # OPTIONAL: Copy to clipboard from CLI
     'zathura'                       # OPTIONAL: Document viewer
     'zathura-pdf-mupdf'             # OPTIONAL: PDF ePub and OpenXPS support for zathura
@@ -74,7 +64,6 @@ APPS=(
     'zip'                           # OPTIONAL: Support for zip files
     'zsh-autosuggestions'           # OPTIONAL: Suggest commands as you type for zsh
     'zsh-syntax-highlighting'       # OPTIONAL: Syntax highlighting for zsh
-    'zsh-theme-powerlevel10k'       # OPTIONAL: Stylish prompt for zsh
 )
 
 GAMING_APPS=(
@@ -185,7 +174,6 @@ BSPWM=(
     'ttf-terminus-nerd'
     'ttf-inconsolata'
     'ttf-joypixels'
-    'zsh'
 )
 
 CINNAMON=(
