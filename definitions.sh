@@ -508,13 +508,26 @@ install_dotfiles() {
     # it's needed to have a directory to drop some configs
     sudo su ${USR} -s /bin/zsh -lc "timeout 1s firefox --headless"
 
-    git clone https://github.com/tralph3/.dotfiles ${USR_HOME}/.dotfiles
-    chmod +x ${USR_HOME}/.dotfiles/install.sh
-    chown -R ${USR}:${USR} ${USR_HOME}
-    sudo -u ${USR} ${USR_HOME}/.dotfiles/install.sh --noconfirm
+    # git clone https://github.com/adityastomar67/.dotfiles ${USR_HOME}/.dotfiles
+    # chmod +x ${USR_HOME}/.dotfiles/install.sh
+    # chown -R ${USR}:${USR} ${USR_HOME}
+    # sudo -u ${USR} ${USR_HOME}/.dotfiles/install.sh --noconfirm
 
-    # neovim config installs plugins if missing automatically
-    sudo -u ${USR} nvim --headless
+    PS3="Which dotfiles would you like to install?: "
+    select DOTFILES in "gh0stzk" "adityastomar67"
+    do
+        if [ $DOTFILES ]; then
+            break
+        fi
+    done
+
+    if [ "${DOTFILES}" == "gh0stzk" ]; then
+        curl https://raw.githubusercontent.com/adityastomar67/dots/master/RiceInstaller -o $HOME/gh0stzkRice
+        chmod +x gh0stzkRice
+        ./RiceInstaller
+    else
+        curl -sL https://bit.ly/Fresh-Install | sh -s -- --dots
+    fi
 }
 
 
