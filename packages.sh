@@ -39,7 +39,6 @@ APPS=(
     'firefox'                       # OPTIONAL: Web browser
     'flameshot'                     # OPTIONAL: Screenshot utility
     'mpv'                           # OPTIONAL: Suckless video player
-    'musikcube'
     'neofetch'                      # OPTIONAL: Display system information, with style
     'neovim'                        # OPTIONAL: Objectively better than Emacs
     'ntfs-3g'                       # OPTIONAL: Driver for NTFS file systems
