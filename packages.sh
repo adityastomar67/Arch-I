@@ -15,7 +15,6 @@ BASE_APPS=(
     'dosfstools'                    # OPTIONAL: Utilities for DOS filesystems
     'efibootmgr'                    # OPTIONAL: Modify UEFI systems from CLI
     'git'                           # OPTIONAL: Version Control System, needed for the Grub theme, Dotfiles, and Paru
-    'gnu-free-fonts'                # OPTIONAL: Additional system fonts
     'grub'                          # NEEDED  : Bootloader
     'linux-headers'                 # OPTIONAL: Scripts for building kernel modules
     'man-db'                        # OPTIONAL: Manual database
@@ -29,7 +28,6 @@ BASE_APPS=(
     'reflector'                     # OPTIONAL: Get download mirrors
     'usbutils'                      # OPTIONAL: Various tools for USB devices
     'wget'                          # OPTIONAL: Utility to download files
-    'xdg-user-dirs'                 # OPTIONAL: Manager for user directories
     'zsh'                           # OPTIONAL: An alternate shell to bash
 )
 
@@ -44,7 +42,6 @@ APPS=(
     'musikcube'
     'neofetch'                      # OPTIONAL: Display system information, with style
     'neovim'                        # OPTIONAL: Objectively better than Emacs
-    'ttf-ubuntumono-nerd'           # OPTIONAL: Ubuntu fonts patched with icons
     'ntfs-3g'                       # OPTIONAL: Driver for NTFS file systems
     'numlockx'                      # OPTIONAL: Set numlock from CLI
     'p7zip'                         # OPTIONAL: Support for 7zip files
@@ -54,7 +51,6 @@ APPS=(
     'pipewire-pulse'                # OPTIONAL: Pipewire replacement for pulseaudio
     'python-pynvim'                 # OPTIONAL: Python client for neovim
     'ripgrep'                       # OPTIONAL: GNU grep replacement
-    'ttf-ubuntu-font-family'        # OPTIONAL: Ubuntu fonts
     'unrar'                         # OPTIONAL: Support for rar files
     'unzip'                         # OPTIONAL: Support for zip files
     'xclip'                         # OPTIONAL: Copy to clipboard from CLI
@@ -62,8 +58,6 @@ APPS=(
     'zathura-pdf-mupdf'             # OPTIONAL: PDF ePub and OpenXPS support for zathura
     'zenity'                        # OPTIONAL: Basic GUIs from CLI
     'zip'                           # OPTIONAL: Support for zip files
-    'zsh-autosuggestions'           # OPTIONAL: Suggest commands as you type for zsh
-    'zsh-syntax-highlighting'       # OPTIONAL: Syntax highlighting for zsh
 )
 
 GAMING_APPS=(
