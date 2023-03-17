@@ -116,6 +116,7 @@ setup_variables() {
 }
 
 print_summary() {
+    header
 
     echo -e "\n--------------------"
     echo "Summary:"
