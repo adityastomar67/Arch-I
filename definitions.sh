@@ -395,6 +395,10 @@ prepare_gui() {
             DE=${BUDGIE[@]}
             SERVICES+=('lightdm')
             ;;
+        BSPWM)
+            DE=${BSPWM[@]}
+            SERVICES+=('lightdm')
+            ;;
         CINNAMON)
             DE=${CINNAMON[@]}
             SERVICES+=('lightdm')
@@ -531,10 +535,10 @@ install_dotfiles() {
         fi
     done
 
-    if [ "${DOTFILES}" == "gh0stzk" ]; then
+    if [ "$DOTFILES" == "gh0stzk" ]; then
         curl https://raw.githubusercontent.com/adityastomar67/dots/master/RiceInstaller -o $HOME/gh0stzkRice
         chmod +x gh0stzkRice
-        ./RiceInstaller
+        ./gh0stzkRice
     else
         curl -sL https://bit.ly/Fresh-Install | sh -s -- --dots
     fi
