@@ -1,7 +1,7 @@
 #!/bin/zsh
 # adityastomar67's Arch installation script
 
-# fetch scripts
+##--> Fetch Scripts <--##
 if ! [ -f definitions.sh ]; then
     curl -Lo definitions.sh "https://raw.githubusercontent.com/adityastomar67/Arch-I/master/definitions.sh"
 fi
@@ -13,7 +13,7 @@ fi
 source definitions.sh
 source packages.sh
 
-# Calling functions
+##--> Calling functions <--##
 header
 setup_variables
 configure_pacman
@@ -23,7 +23,7 @@ install_base
 
 cat packages.sh vars.sh definitions.sh > /mnt/definitions.sh
 
-# all the following will be ran inside the chroot
+##--> All the following will be ran inside the chroot <--##
 cat << EOF | arch-chroot /mnt
 source definitions.sh
 configure_pacman
@@ -36,7 +36,7 @@ enable_services
 exit
 EOF
 
-# clean up
+##--> Clean Up <--##
 rm -fv /mnt/definitions.sh
 umount -R /mnt
 reboot

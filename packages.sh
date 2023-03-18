@@ -1,11 +1,11 @@
-# core system components
+##--> Core system components <--##
 BASE=(
     'base'                          # NEEDED: Base Arch Linux system
     'linux'                         # NEEDED: Linux Kernel
     'linux-firmware'                # NEEDED: Firmware files for Linux
 )
 
-# basic system components
+##--> Basic system components <--##
 BASE_APPS=(
     'archlinux-keyring'             # NEEDED  : Arch Linux PGP key ring
     'pacman-contrib'
@@ -31,7 +31,7 @@ BASE_APPS=(
     'zsh'                           # OPTIONAL: An alternate shell to bash
 )
 
-# user applications
+##--> User Applications <--##
 APPS=(
     'alsa-utils'                    # OPTIONAL: Utilities for managing alsa cards
     'exa'                           # OPTIONAL: Replacement for the ls command
@@ -59,6 +59,7 @@ APPS=(
     'zip'                           # OPTIONAL: Support for zip files
 )
 
+##--> Gaming Apps <--##
 GAMING_APPS=(
     'discord'                       # OPTIONAL: Communication software
     'gamescope'                     # OPTIONAL: WM container for games
@@ -72,7 +73,7 @@ GAMING_APPS=(
     'winetricks'                    # OPTIONAL: Script to install libraries in Wine
 )
 
-# all of these will get enabled
+##--> Services to enable <--##
 SERVICES=(
     'NetworkManager'
     'cronie'
@@ -80,11 +81,11 @@ SERVICES=(
     'sshd'
 )
 
-# this will get populated automatically
+##--> This will get populated automatically <--##
 GPU_DRIVERS=()
 
 
-# DESKTOP ENVIRONMENTS #
+##--> Desktop Environments <--##
 ENVIRONMENTS=(
     'AWESOME'
     'BUDGIE'

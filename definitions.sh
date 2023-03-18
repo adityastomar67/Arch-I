@@ -1,4 +1,4 @@
-# PRE-SETUP #
+##--> PRE-SETUP <--##
 setup_variables() {
 
     echo "\x1b[1;36m"
@@ -174,7 +174,7 @@ update_keyring() {
 }
 
 
-# PARTITIONING #
+##--> PARTITIONING <--##
 partition_and_mount() {
 
     if [ -d /sys/firmware/efi/efivars ]; then
@@ -276,7 +276,6 @@ partition_and_mount_bios() {
     reflector > /etc/pacman.d/mirrorlist
 }
 
-
 install_base() {
     pacstrap /mnt ${BASE[*]}
     reflector > /mnt/etc/pacman.d/mirrorlist
@@ -289,7 +288,7 @@ install_base() {
 }
 
 
-# NETWORK #
+##--> NETWORK <--##
 setup_network() {
     # timezone
     ln -sfv /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
@@ -318,7 +317,7 @@ configure_locale() {
 }
 
 
-# BASE #
+##--> BASE <--##
 prepare_system() {
     # install basic system components
     if [ "$WIFI" = "y" ]; then
@@ -357,7 +356,7 @@ install_cpu_ucode() {
 }
 
 
-# USERS #
+##--> USERS <--##
 setup_users() {
     useradd -mG wheel,video,audio,optical,storage,games -s /bin/zsh ${USR}
     echo -e "${PASSWD}\n${PASSWD}\n" | passwd ${USR}
@@ -371,7 +370,7 @@ setup_users() {
 }
 
 
-# GUI #
+##--> GUI <--##
 prepare_gui() {
     # add the default DM to the list of services to be enabled
     # and set up the DE variable
@@ -425,7 +424,7 @@ prepare_gui() {
 }
 
 
-# CUSTOMIZATION #
+##--> CUSTOMIZATION <--##
 install_applications() {
     ins='paru --needed --useask --ask=127 --noconfirm -S'
 
@@ -532,7 +531,7 @@ install_dotfiles() {
 }
 
 
-# SERVICES #
+##--> SERVICES <--##
 enable_services() {
     for service in ${SERVICES[*]}
     do
@@ -541,7 +540,7 @@ enable_services() {
 }
 
 
-# OTHERS #
+##--> OTHERS <--##
 header() {
 
     clear
