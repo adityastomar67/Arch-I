@@ -1,23 +1,27 @@
+WHITE="\033[0;37m"
+PURPLE="\033[0;35m"
+RED="\033[0;31m"
+GREEN="\033[1;32m"
+TAN="\033[0;33m"
+YELLOW="\033[0;33m"
+BLUE="\033[0;34m"
+BOLD="\033[4;37m"
+UNDERLINE="\033[4;37m"
+RESET="\033[0m"
+
 ##--> PRE-SETUP <--##
 setup_variables() {
-
-    echo "\x1b[1;36m"
-
-    # this is ASCII art
-    # base64 -d <<<"H4sIAAAAAAAAA1NQAIF4/Xh9GA1hIdgwGZioggI2eQiNUIsQ5VLAFEdWgdsGhAw2/TA+F8wpEC6yYmSH4jMeFaM6nlKnIzyAxem4/IU95NE9iWotuseBxgMAqF41l90BAAA=" | gunzip
-
-    echo "\x1b[0m"
+    ##--> Choose the root drive <--##
     echo
     echo "Choose the device you want to install Arch Linux on:"
-    echo "\x1b[1;31mThe chosen device will be completely erased and all its data will be lost"
-    echo "\x1b[33m"
-
-    # show the drives in yellow
+    echo "NOTE: ${RED}The chosen device will be completely erased and all its data will be lost!${RESET}"
+    echo 
+    echo "${YELLOW}"
     lsblk
-    echo "\x1b[0m"
+    echo "${RESET}"
     echo
-    PS3="Choose the root drive: "
-
+    echo
+    echo "Choose the root drive: "
     select drive in $(lsblk | sed '/\(^├\|^└\|^NAME\)/d' | cut -d " " -f 1)
     do
         if [ $drive ]; then
@@ -26,8 +30,10 @@ setup_variables() {
         fi
     done
 
-    PS3="Choose your Windows partition to setup dual-boot: "
-
+    ##--> Choose Dual-Boot partition <--##
+    header
+    echo
+    echo "Choose your Windows partition to setup dual-boot: "
     select drive in $(lsblk | sed '/\(^├\|^└\)/!d' | cut -d " " -f 1 | cut -c7-) "None"
     do
         if [ "$drive" = "None" ]; then
@@ -41,8 +47,10 @@ setup_variables() {
         fi
     done
 
-    PS3="Choose an extra partition to use as Storage: "
-
+    ##--> Choose storage partition <--##
+    header
+    echo
+    echo "Choose an extra partition to use as Storage: "
     select drive in $(lsblk | sed '/\(^├\|^└\)/!d' | cut -d " " -f 1 | cut -c7-) "None"
     do
         if [ "$drive" = "None" ]; then
@@ -56,22 +64,31 @@ setup_variables() {
         fi
     done
 
+    ##--> Give out username <--##
+    header
+    echo
     read "USR?Enter your username: "
+
+    ##--> Put the password <--##
     while
-        echo "\x1b[33m"
+        echo "${YELLOW}"
         read -s "PASSWD?Enter your password: "
         echo ""
         read -s "CONF_PASSWD?Re-enter your password: "
-        echo "\x1b[31m"
+        echo "${RESET}"
         [ "$PASSWD" != "$CONF_PASSWD" ]
-    do echo "Passwords don't match"; done
+    do echo "${RED}Passwords don't match${RESET}"; done
+    echo "${GREEN}Passwords matched.${RESET}"
 
-    echo "\x1b[32mPasswords match\x1b[0m"
-    echo ""
-
+    ##--> Give Hostname <--##
+    header
+    echo
     read "HOSTNAME?Enter this machine's hostname: "
 
-    PS3="Do you want to install applications for gaming?: "
+    ##--> Select for gaming application <--##
+    header
+    echo
+    echo "Do you want to install applications for gaming?: "
     select GAMING in "Yes" "No"
     do
         if [ $GAMING ]; then
@@ -79,7 +96,10 @@ setup_variables() {
         fi
     done
 
-    PS3="Do you want to install dotfiles?: "
+    ##--> CHoose If you wants to install configs <--##
+    header
+    echo
+    echo "Do you want to install dotfiles?: "
     select DOTFILES in "Yes" "No"
     do
         if [ $DOTFILES ]; then
@@ -87,13 +107,15 @@ setup_variables() {
         fi
     done
 
-    # detect wifi card
+    ##--> Detects Wifi Card if present <--##
     if [ "$(lspci -d ::280)" ]; then
         WIFI=y
     fi
 
-
-    PS3="Choose your desktop environment: "
+    ##--> Choose Your DE <--##
+    header
+    echo
+    echo "Choose your desktop environment: "
     select DE in ${ENVIRONMENTS[@]}
     do
         if [ $DE ]; then
@@ -101,7 +123,7 @@ setup_variables() {
         fi
     done
 
-    # this: "<<-" ignores indentation, but only for tab characters
+    ##--> this: "<<-" ignores indentation, but only for tab characters <--##
     cat <<- EOL > vars.sh
 		export DE=$DE
 		export USR=$USR
@@ -117,43 +139,36 @@ setup_variables() {
 
 print_summary() {
     header
-
-    echo -e "\n--------------------"
-    echo "Summary:"
-    echo ""
-    # set text to bold red
-    echo "\x1b[1;33m"
-    echo "The installer will erase all data on the \x1b[1;31m$ROOT_DEVICE\x1b[1;33m drive\x1b[0m"
+    echo
+    echo "${UNDERLINE}Summary:-${RESET}"
+    echo
+    echo "${BOLD}${RED}"
+    echo "The installer will erase all data on the ${RESET}${YELLOW}$ROOT_DEVICE${RESET} drive."
 
     if [ $STRG_DEVICE ]; then
-        echo "It will use \x1b[1;33m$STRG_DEVICE\x1b[0m as a storage medium and mount it on \x1b[1;33m/mnt/Storage\x1b[0m"
+        echo "It will use ${YELLOW}$STRG_DEVICE${RESET} as a storage medium and mount it on ${YELLOW}/mnt/Storage${RESET}"
     fi
 
 
     if [ $WIN_DEVICE ]; then
-        echo "It will use \x1b[1;33m$WIN_DEVICE\x1b[0m as a Windows partition and mount it on \x1b[1;33m/mnt/Windows\x1b[0m"
+        echo "It will use ${YELLOW}$WIN_DEVICE${RESET} as a Windows partition and mount it on ${YELLOW}/mnt/Windows${RESET}"
     fi
 
-    echo "Your username will be \x1b[1;33m$USR\x1b[0m"
+    echo "Your username will be ${YELLOW}$USR${RESET}"
 
-    echo "The machine's hostname will be \x1b[1;33m$HOSTNAME\x1b[0m"
+    echo "The machine's hostname will be ${YELLOW}$HOSTNAME${RESET}"
 
-    echo "Your Deskop Environment will be \x1b[1;33m$DE\x1b[0m"
+    echo "Your Deskop Environment will be ${YELLOW}$DE${RESET}"
 
     if [ "${GAMING}" = "Yes" ]; then
-        echo "We \x1b[1;33mWILL\x1b[0m install gaming packages"
-    else
-        echo "We \x1b[1;33mWILL NOT\x1b[0m have gaming packages"
+        echo "${YELLOW}Installer will install gaming packages.${RESET}"
     fi
 
     if [ "${DOTFILES}" = "Yes" ]; then
-        echo "We \x1b[1;33mWILL\x1b[0m install dotfiles"
-    else
-        echo "We \x1b[1;33mWILL NOT\x1b[0m install dotfiles"
+        echo "${YELLOW}Installer will configure dotfiles.${RESET}"
     fi
 
     read "ANS?Proceed with installation? [y/N]: "
-
     if [ "$ANS" != "y" ]; then
         exit
     fi
@@ -172,7 +187,6 @@ update_keyring() {
     # this is useful if installing from outdated ISO
     pacman --noconfirm --ask=127 -Sy archlinux-keyring
 }
-
 
 ##--> PARTITIONING <--##
 partition_and_mount() {
@@ -287,7 +301,6 @@ install_base() {
     }' >> /mnt/etc/fstab
 }
 
-
 ##--> NETWORK <--##
 setup_network() {
     # timezone
@@ -315,7 +328,6 @@ configure_locale() {
 
     echo "LANG=en_US.UTF-8" > /etc/locale.conf
 }
-
 
 ##--> BASE <--##
 prepare_system() {
@@ -355,7 +367,6 @@ install_cpu_ucode() {
     fi
 }
 
-
 ##--> USERS <--##
 setup_users() {
     useradd -mG wheel,video,audio,optical,storage,games -s /bin/zsh ${USR}
@@ -368,7 +379,6 @@ setup_users() {
     # add insults to injury
     echo 'Defaults insults' > /etc/sudoers.d/insults
 }
-
 
 ##--> GUI <--##
 prepare_gui() {
@@ -422,7 +432,6 @@ prepare_gui() {
             ;;
     esac
 }
-
 
 ##--> CUSTOMIZATION <--##
 install_applications() {
@@ -513,7 +522,7 @@ install_dotfiles() {
     # chown -R ${USR}:${USR} ${USR_HOME}
     # sudo -u ${USR} ${USR_HOME}/.dotfiles/install.sh --noconfirm
 
-    PS3="Which dotfiles would you like to install?: "
+    echo "Which dotfiles would you like to install?: "
     select DOTFILES in "gh0stzk" "adityastomar67"
     do
         if [ $DOTFILES ]; then
@@ -530,7 +539,6 @@ install_dotfiles() {
     fi
 }
 
-
 ##--> SERVICES <--##
 enable_services() {
     for service in ${SERVICES[*]}
@@ -538,7 +546,6 @@ enable_services() {
         systemctl enable $service
     done
 }
-
 
 ##--> OTHERS <--##
 header() {
