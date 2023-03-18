@@ -459,11 +459,11 @@ install_applications() {
     # install user applications
     sudo su ${USR} -s /bin/zsh -lc "$ins ${APPS[*]}"
 
-    if [ "${GAMING}" == "Yes" ]; then
+    if [ $GAMING == "Yes" ]; then
         sudo su ${USR} -s /bin/zsh -lc "$ins ${GAMING_APPS[*]}"
     fi
 
-    if [ "${DOTFILES}" == "Yes" ]; then
+    if [ $DOTFILES == "Yes" ]; then
         install_dotfiles
     fi
 
