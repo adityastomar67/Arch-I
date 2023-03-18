@@ -527,6 +527,8 @@ install_dotfiles() {
     # chown -R ${USR}:${USR} ${USR_HOME}
     # sudo -u ${USR} ${USR_HOME}/.dotfiles/install.sh --noconfirm
 
+    header
+    echo
     echo "Which dotfiles would you like to install?: "
     select DOTFILES in "gh0stzk" "adityastomar67"
     do
