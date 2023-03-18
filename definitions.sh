@@ -14,7 +14,7 @@ setup_variables() {
     ##--> Choose the root drive <--##
     echo
     echo "Choose the device you want to install Arch Linux on:"
-    echo "NOTE: ${RED}The chosen device will be completely erased and all its data will be lost!${RESET}"
+    echo "NOTE: ${BOLD}${RED}The chosen device will be completely erased and all its data will be lost!${RESET}"
     echo 
     echo "${YELLOW}"
     lsblk
@@ -79,6 +79,7 @@ setup_variables() {
         [ "$PASSWD" != "$CONF_PASSWD" ]
     do echo "${RED}Passwords don't match${RESET}"; done
     echo "${GREEN}Passwords matched.${RESET}"
+    sleep 2
 
     ##--> Give Hostname <--##
     header
