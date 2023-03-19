@@ -158,6 +158,8 @@ BSPWM=(
     'maim'
     'pamixer'
     'libwebp'
+    'lightdm'
+    'lightdm-gtk-greeter'
     'webp-pixbuf-loader'
     'xorg-xprop'
     'xorg-xkill'

@@ -396,7 +396,6 @@ prepare_gui() {
             ;;
         BSPWM)
             DE=${BSPWM[@]}
-            SERVICES+=('lightdm')
             ;;
         CINNAMON)
             DE=${CINNAMON[@]}
