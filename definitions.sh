@@ -142,7 +142,6 @@ print_summary() {
     header
     echo
     echo "${UNDERLINE}Summary:-${RESET}"
-    echo
     echo "${BOLD}${RED}"
     echo "The installer will erase all data on the ${RESET}${YELLOW}$ROOT_DEVICE${RESET} drive."
 
