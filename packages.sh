@@ -56,6 +56,7 @@ APPS=(
     'zathura'                       # OPTIONAL: Document viewer
     'zathura-pdf-mupdf'             # OPTIONAL: PDF ePub and OpenXPS support for zathura
     'zenity'                        # OPTIONAL: Basic GUIs from CLI
+    'xorg-xrandr'
     'zip'                           # OPTIONAL: Support for zip files
 )
 
