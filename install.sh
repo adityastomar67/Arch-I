@@ -3,11 +3,11 @@
 
 ##--> Fetch Scripts <--##
 if ! [ -f definitions.sh ]; then
-    curl -Lo definitions.sh "https://raw.githubusercontent.com/adityastomar67/Arch-I/master/definitions.sh"
+    curl -LO "https://raw.githubusercontent.com/adityastomar67/Arch-I/master/definitions.sh"
 fi
 
 if ! [ -f packages.sh ]; then
-    curl -Lo packages.sh "https://raw.githubusercontent.com/adityastomar67/Arch-I/master/packages.sh"
+    curl -LO "https://raw.githubusercontent.com/adityastomar67/Arch-I/master/packages.sh"
 fi
 
 source definitions.sh

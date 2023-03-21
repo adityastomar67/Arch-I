@@ -535,8 +535,8 @@ install_dotfiles() {
         fi
     done
 
-    if [ "$DOTFILES" == "gh0stzk" ]; then
-        curl https://raw.githubusercontent.com/adityastomar67/dots/master/RiceInstaller -o $HOME/gh0stzkRice
+    if [ $DOTFILES == "gh0stzk" ]; then
+        curl https://raw.githubusercontent.com/adityastomar67/dots/master/Installer -o $HOME/gh0stzkRice
         chmod +x gh0stzkRice
         ./gh0stzkRice
     else
