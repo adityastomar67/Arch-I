@@ -461,10 +461,6 @@ install_applications() {
         sudo su ${USR} -s /bin/zsh -lc "$ins ${GAMING_APPS[*]}"
     fi
 
-    if [ $DOTFILES == "Yes" ]; then
-        install_dotfiles
-    fi
-
     # remove unprotected root privileges
     echo '%wheel ALL=(ALL:ALL) ALL' > /etc/sudoers.d/wheel_sudo
 }
@@ -501,6 +497,13 @@ detect_drivers(){
 }
 
 install_dotfiles() {
+
+    if [ $DOTFILES == "Yes" ]; then
+        install_dotfiles
+    else
+        return
+    fi
+
     # add some scripts for cronie
     mkdir -p /etc/cron.daily/
     cat <<- EOL > /etc/cron.daily/updatedb.sh
@@ -525,17 +528,10 @@ install_dotfiles() {
     # chown -R ${USR}:${USR} ${USR_HOME}
     # sudo -u ${USR} ${USR_HOME}/.dotfiles/install.sh --noconfirm
 
-    header
-    echo
-    echo "Which dotfiles would you like to install?: "
-    select DOTFILES in "gh0stzk" "adityastomar67"
-    do
-        if [ $DOTFILES ]; then
-            break
-        fi
-    done
-
-    if [ $DOTFILES = "gh0stzk" ]; then
+    echo "Which dotfiles would you like to install?: [a/B]"
+    read -rp "a. gh0stzk  b. adityastomar67" res
+    echo ""
+    if [[ $res == "a" ]]; then
         curl https://raw.githubusercontent.com/adityastomar67/dots/master/Installer -o $HOME/gh0stzkRice
         chmod +x gh0stzkRice
         ./gh0stzkRice

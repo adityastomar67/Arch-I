@@ -33,6 +33,7 @@ setup_users
 prepare_gui
 install_applications
 enable_services
+install_dotfiles
 exit
 EOF
 
